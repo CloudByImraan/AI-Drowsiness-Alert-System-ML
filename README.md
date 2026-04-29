@@ -6,32 +6,32 @@ A real-time computer vision system that detects driver drowsiness using facial l
 
 ## 📌 Project Overview
 
-This project uses facial landmark detection and mathematical analysis to monitor eye behavior in real-time and trigger an alert when signs of drowsiness are detected.
+Driver fatigue is a major cause of road accidents. This project aims to detect signs of drowsiness in real-time by analyzing eye behavior using computer vision techniques.
 
-It is based on:
+The system uses:
 
 * Facial landmark detection
-* Eye Aspect Ratio (EAR) calculation
-* Real-time video processing
-* Audio alert system
+* Feature extraction (eye regions)
+* Eye Aspect Ratio (EAR) computation
+* Real-time webcam processing
+* Threshold-based alert mechanism
 
 ---
 
-## 🚧 Project Status: **🟡 IN PROGRESS**
+## 🚧 Project Status: 🟡 In Progress
 
-This project is currently under development.
+### ✅ Completed
 
-### Completed:
-
-* Webcam setup using OpenCV
-* Facial landmark detection implemented
+* Webcam integration using OpenCV
+* Facial landmark detection using MediaPipe
 * Eye region extraction
+* Eye Aspect Ratio (EAR) calculation and live display
 
-### In Progress:
+### 🔄 Upcoming
 
-* EAR threshold tuning
-* Alert system optimization
-* Full system integration
+* EAR threshold logic
+* Frame-based drowsiness detection
+* Audio alert system integration
 
 ---
 
@@ -41,7 +41,8 @@ This project is currently under development.
 Drowsiness-Alert-System/
 │
 ├── notebooks/
-│   └── task_2_1_webcam_landmarks.ipynb
+│   ├── task_2_1_webcam_landmarks.ipynb
+│   └── task_2_2_EAR_calculation.ipynb
 │
 ├── src/
 │   ├── utils/
@@ -61,40 +62,98 @@ Drowsiness-Alert-System/
 
 ---
 
-## 🎯 Objectives
+## 🎯 Project Tasks
 
-### Task 2.1 – Facial Landmark Mapping
+### 🔹 Task 2.1 — Webcam & Facial Landmark Mapping
 
-* Capture live webcam feed
-* Detect face landmarks using MediaPipe / dlib
-* Highlight eye regions in real time
+* Access live webcam feed
+* Detect facial landmarks using MediaPipe Face Mesh
+* Extract and highlight eye regions in real-time
+
+📌 **Outcome:**
+Real-time face tracking with visible eye landmark points.
 
 ---
 
-### Task 2.2 – Eye Aspect Ratio (EAR)
+### 🔹 Task 2.2 — Eye Aspect Ratio (EAR) Calculation
 
-* Extract key eye landmarks
+* Extract 6 key landmarks per eye
 * Compute EAR using Euclidean distance
-* Display real-time EAR values
+* Display EAR value live on screen
+
+📌 **Key Insight:**
+
+* Eyes open → EAR ≈ 0.25 – 0.35
+* Blink → EAR drops briefly
+* Eyes closed → EAR < 0.20
+
+📌 **Outcome:**
+A dynamic EAR value that reflects eye state in real time.
 
 ---
 
-### Task 2.3 – Alert System
+### 🔹 Task 2.3 — Drowsiness Detection & Alert (Upcoming)
 
-* Define EAR threshold
+* Define EAR threshold (e.g., < 0.25)
 * Track consecutive frames
-* Trigger audio alarm when drowsiness is detected
+* Trigger alarm when eyes remain closed
+
+📌 **Expected Outcome:**
+Automatic alert system when drowsiness is detected.
 
 ---
 
-## 🛠️ Tools & Technologies
+## ⚙️ Environment Setup
+
+1. Create project folder
+
+2. Open terminal inside folder:
+
+   ```bash
+   cmd
+   ```
+
+3. Create virtual environment:
+
+   ```bash
+   python -m venv venv
+   ```
+
+4. Activate environment:
+
+   ```bash
+   venv\Scripts\activate
+   ```
+
+5. Install dependencies:
+
+   ```bash
+   pip install opencv-python mediapipe numpy scipy matplotlib jupyter ipykernel
+   ```
+
+6. Fix MediaPipe issue:
+
+   ```bash
+   pip uninstall mediapipe -y
+   pip install mediapipe==0.10.9
+   ```
+
+7. Launch Jupyter:
+
+   ```bash
+   jupyter notebook
+   ```
+
+---
+
+## 🛠️ Technologies Used
 
 * Python
 * OpenCV (cv2)
-* MediaPipe / dlib
+* MediaPipe
 * NumPy
 * SciPy
-* Pygame / playsound
+* Jupyter Notebook
 
 ---
 
@@ -103,31 +162,31 @@ Drowsiness-Alert-System/
 * Computer Vision
 * Facial Landmark Detection
 * Feature Extraction
+* Geometric Analysis (EAR)
 * Real-time Video Processing
-* Threshold-based Alert Systems
 
 ---
 
 ## 📊 Expected Output
 
 * Live webcam feed
-* Eye landmarks displayed in real-time
-* EAR value shown on screen
-* Alarm triggered when eyes remain closed
+* Eye landmarks displayed
+* Real-time EAR value
+* (Upcoming) Audio alert when drowsiness is detected
 
 ---
 
 ## 🔮 Future Improvements
 
-* Improve accuracy using deep learning models
-* Add mobile deployment version
-* Optimize real-time performance
-* Add fatigue detection beyond eye tracking
+* Deep learning-based eye state classification
+* Improved robustness under low lighting
+* Mobile or embedded system deployment
+* Head pose and yawning detection
 
 ---
 
 ## 👨‍💻 Author
 
-Imraan Muhammad Sani
+Imraan Muhammad Sani\
 
 ---
