@@ -1,60 +1,112 @@
-# 😴 Drowsiness Alert System (Computer Vision Project)
+# 😴 AI Drowsiness Detection System
 
-A real-time computer vision system that detects driver drowsiness using facial landmarks and Eye Aspect Ratio (EAR) analysis.
+A real-time Computer Vision and AI-based monitoring system that detects signs of drowsiness using facial landmark tracking and Eye Aspect Ratio (EAR) analysis.
 
----
-
-## 📌 Project Overview
-
-Driver fatigue is a major cause of road accidents. This project aims to detect signs of drowsiness in real-time by analyzing eye behavior using computer vision techniques.
-
-The system uses:
-
-* Facial landmark detection
-* Feature extraction (eye regions)
-* Eye Aspect Ratio (EAR) computation
-* Real-time webcam processing
-* Threshold-based alert mechanism
+The system continuously monitors eye movement through a webcam and triggers an alert when prolonged eye closure is detected.
 
 ---
 
-## 🚧 Project Status: 🟡 In Progress
+## 🚧 Project Status
 
-### ✅ Completed
+⚠️ **Project Currently In Progress**
 
-* Webcam integration using OpenCV
-* Facial landmark detection using MediaPipe
-* Eye region extraction
-* Eye Aspect Ratio (EAR) calculation and live display
+This project is still being actively improved and expanded with more advanced Computer Vision and AI features.
 
-### 🔄 Upcoming
+💡 This project demonstrates my current approach and can be further enhanced with more advanced features and optimizations.
 
-* EAR threshold logic
-* Frame-based drowsiness detection
-* Audio alert system integration
+📌 Represents an early-stage implementation with room for future expansion.
 
 ---
 
-## 📂 Project Structure
+# 📌 Project Overview
 
-```bash
+Driver fatigue and micro-sleep are major causes of road accidents worldwide.
+
+This project was developed to provide a non-intrusive real-time monitoring system capable of detecting prolonged eye closure and warning the user before dangerous situations occur.
+
+The system combines:
+
+* Computer Vision
+* Facial Landmark Detection
+* Eye Aspect Ratio (EAR)
+* Adaptive Thresholding
+* Real-Time Webcam Processing
+* Timer-Based Drowsiness Logic
+
+The application captures live webcam input, analyzes eye behavior frame-by-frame, and activates an alert when drowsiness is detected.
+
+---
+
+# 🎯 Objectives
+
+The main objectives of this project are to:
+
+* Detect facial landmarks in real time
+* Isolate and monitor eye regions
+* Calculate Eye Aspect Ratio (EAR)
+* Differentiate blinking from drowsiness
+* Implement adaptive threshold calibration
+* Trigger alerts during prolonged eye closure
+
+---
+
+# 🧠 Technologies Used
+
+* Python
+* OpenCV (cv2)
+* MediaPipe Face Mesh
+* NumPy
+* SciPy
+* PlaySound
+* Jupyter Notebook
+
+---
+
+# 🖥️ System Workflow
+
+```text id="drowflow1"
+Webcam Input
+      ↓
+Face Detection
+      ↓
+Facial Landmark Mapping
+      ↓
+Eye Landmark Extraction
+      ↓
+EAR Calculation
+      ↓
+Adaptive Threshold Calibration
+      ↓
+Eye Closure Detection
+      ↓
+Timer-Based Validation
+      ↓
+Alarm Trigger
+```
+
+---
+
+# 📂 Project Structure
+
+```bash id="drowstruct1"
 Drowsiness-Alert-System/
 │
 ├── notebooks/
 │   ├── task_2_1_webcam_landmarks.ipynb
-│   └── task_2_2_EAR_calculation.ipynb
-│
-├── src/
-│   ├── utils/
-│   └── models/
+│   ├── task_2_2_ear_calculation.ipynb
+│   └── task_2_3_drowsiness_alert_adaptive.ipynb
 │
 ├── assets/
-│   ├── audio/
-│   └── images/
+│   └── audio/
+│       └── alarm.wav
 │
 ├── outputs/
-│   ├── videos/
-│   └── screenshots/
+│   ├── screenshots/
+│   └── videos/
+│
+├── src/
+│   ├── models/
+│   └── utils/
 │
 ├── requirements.txt
 └── README.md
@@ -62,131 +114,177 @@ Drowsiness-Alert-System/
 
 ---
 
-## 🎯 Project Tasks
+# 👁️ Facial Landmark Detection
 
-### 🔹 Task 2.1 — Webcam & Facial Landmark Mapping
+MediaPipe Face Mesh is used to detect facial landmarks in real time.
 
-* Access live webcam feed
-* Detect facial landmarks using MediaPipe Face Mesh
-* Extract and highlight eye regions in real-time
-
-📌 **Outcome:**
-Real-time face tracking with visible eye landmark points.
+Specific landmarks around the eyes are extracted continuously, enabling accurate tracking of eye movement during live webcam processing.
 
 ---
 
-### 🔹 Task 2.2 — Eye Aspect Ratio (EAR) Calculation
+# 📐 Eye Aspect Ratio (EAR)
 
-* Extract 6 key landmarks per eye
-* Compute EAR using Euclidean distance
-* Display EAR value live on screen
+The Eye Aspect Ratio (EAR) is a mathematical formula used to determine whether the eyes are open or closed.
 
-📌 **Key Insight:**
+The formula compares:
 
-* Eyes open → EAR ≈ 0.25 – 0.35
-* Blink → EAR drops briefly
-* Eyes closed → EAR < 0.20
+* Vertical eye distances
+* Horizontal eye width
 
-📌 **Outcome:**
-A dynamic EAR value that reflects eye state in real time.
+### EAR Formula
 
----
-
-### 🔹 Task 2.3 — Drowsiness Detection & Alert (Upcoming)
-
-* Define EAR threshold (e.g., < 0.25)
-* Track consecutive frames
-* Trigger alarm when eyes remain closed
-
-📌 **Expected Outcome:**
-Automatic alert system when drowsiness is detected.
+```text id="earformula1"
+EAR = (||p2 - p6|| + ||p3 - p5||) / (2 ||p1 - p4||)
+```
 
 ---
 
-## ⚙️ Environment Setup
+# 📊 EAR Interpretation
 
-1. Create project folder
-
-2. Open terminal inside folder:
-
-   ```bash
-   cmd
-   ```
-
-3. Create virtual environment:
-
-   ```bash
-   python -m venv venv
-   ```
-
-4. Activate environment:
-
-   ```bash
-   venv\Scripts\activate
-   ```
-
-5. Install dependencies:
-
-   ```bash
-   pip install opencv-python mediapipe numpy scipy matplotlib jupyter ipykernel
-   ```
-
-6. Fix MediaPipe issue:
-
-   ```bash
-   pip uninstall mediapipe -y
-   pip install mediapipe==0.10.9
-   ```
-
-7. Launch Jupyter:
-
-   ```bash
-   jupyter notebook
-   ```
+ | Eye State       | EAR Behavior              |
+ | --------------  | ------------------------- |
+ | 👁️ Eyes Open   | Higher EAR values         |
+ | 👀 Blinking    | Temporary EAR drop        |
+ | 😴 Eyes Closed | EAR drops below threshold |
 
 ---
 
-## 🛠️ Technologies Used
+# 🧩 Adaptive Thresholding
 
-* Python
-* OpenCV (cv2)
-* MediaPipe
-* NumPy
-* SciPy
-* Jupyter Notebook
+Instead of using a fixed threshold for all users, the system implements adaptive threshold calibration.
+
+During startup:
+
+* The system observes the user's normal eye behavior
+* Calculates the average EAR
+* Generates a personalized threshold value
+
+This improves accuracy across different facial structures and eye shapes.
 
 ---
 
-## 🧠 Key Concepts
+# ⏱️ Drowsiness Detection Logic
+
+The system does not immediately classify blinking as drowsiness.
+
+Instead:
+
+* A timer starts when the eyes close
+* If eye closure persists for several frames/seconds, the system classifies the state as drowsiness
+
+This helps reduce false alarms caused by natural blinking.
+
+---
+
+# 🔊 Alert System
+
+When prolonged eye closure is detected:
+
+* A visual warning appears on screen
+* An alarm sound is triggered automatically
+
+This acts as an immediate safety warning mechanism.
+
+---
+
+# ✅ Features
+
+* Real-time webcam monitoring
+* Facial landmark detection
+* EAR calculation
+* Adaptive threshold calibration
+* Blink vs drowsiness differentiation
+* Audio alert system
+* Real-time video processing
+
+---
+
+# ⚠️ Current Limitations
+
+Although functional, the system still has some limitations:
+
+* Focuses mainly on eye behavior
+* Does not yet detect yawning
+* No head pose estimation
+* Performance may reduce under poor lighting
+* Webcam quality may affect detection accuracy
+* Glasses or occlusion may reduce reliability
+
+---
+
+# 🚀 Possible Improvements
+
+Future versions may include:
+
+* Head pose estimation
+* Yawning detection
+* Deep learning-based fatigue classification
+* Mobile deployment
+* Edge AI deployment (Raspberry Pi / Jetson Nano)
+* Smart vehicle dashboard integration
+* Cloud-based monitoring systems
+
+---
+
+# 🌍 Real-World Applications
+
+This project belongs to the fields of:
+
+* Artificial Intelligence (AI)
+* Computer Vision
+* Human Monitoring Systems
+* Embedded Safety Systems
+
+Possible deployment areas include:
+
+* Smart vehicles
+* Driver assistance systems
+* Transportation safety systems
+* Industrial machine monitoring
+* Edge AI cameras
+* Smart surveillance systems
+
+---
+
+# 🖥️ Project Type
+
+## Real-Time Computer Vision & AI Monitoring System
+
+The project combines:
+
+* AI-based facial analysis
+* Real-time video processing
+* Human behavior monitoring
+* Intelligent alert systems
+
+---
+
+# 📈 Future Deployment Possibilities
+
+| Deployment Type         | Description                        |
+| ----------------------- | ---------------------------------- |
+| Desktop Application     | Local webcam monitoring            |
+| Edge AI Device          | Raspberry Pi / Jetson Nano         |
+| Smart Vehicle Dashboard | Automotive safety integration      |
+| Mobile Application      | Smartphone camera monitoring       |
+| IoT Monitoring System   | Cloud-connected fatigue monitoring |
+
+---
+
+# 📚 Learning Context
+
+This project was developed as part of a practical learning journey involving:
 
 * Computer Vision
-* Facial Landmark Detection
-* Feature Extraction
-* Geometric Analysis (EAR)
-* Real-time Video Processing
+* Real-time AI systems
+* Facial feature extraction
+* Human behavioral analysis
+* Machine Learning concepts
 
 ---
 
-## 📊 Expected Output
+# 👨‍💻 Author
 
-* Live webcam feed
-* Eye landmarks displayed
-* Real-time EAR value
-* (Upcoming) Audio alert when drowsiness is detected
-
----
-
-## 🔮 Future Improvements
-
-* Deep learning-based eye state classification
-* Improved robustness under low lighting
-* Mobile or embedded system deployment
-* Head pose and yawning detection
-
----
-
-## 👨‍💻 Author
-
-Imraan Muhammad Sani\
+Imraan Muhammad Sani
 
 ---
