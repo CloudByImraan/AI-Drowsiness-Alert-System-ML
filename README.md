@@ -310,7 +310,8 @@ The formula compares:
 
 ## EAR Formula
 
----
+<img width="943" height="787" alt="EAR FORMULAR" src="https://github.com/user-attachments/assets/fa591949-852a-4a34-9647-dda339acea27" />
+
 
 # 📊 EAR Interpretation
 
