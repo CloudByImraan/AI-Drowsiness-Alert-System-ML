@@ -1,4 +1,4 @@
-# 😴 AI Drowsiness Detection System
+#  AI Drowsiness Detection System
 
 A real-time Computer Vision and AI-based monitoring system that detects signs of drowsiness using facial landmark tracking and Eye Aspect Ratio (EAR) analysis.
 
@@ -6,15 +6,15 @@ The system continuously monitors eye movement through a webcam and triggers an a
 
 ---
 
-## 🚧 Project Status
+# 🚧 Project Status
 
-⚠️ **Project Currently In Progress**
+ **Project Currently In Progress**
 
 This project is still being actively improved and expanded with more advanced Computer Vision and AI features.
 
-💡 This project demonstrates my current approach and can be further enhanced with more advanced features and optimizations.
+💡 This project demonstrates an early-stage intelligent driver monitoring system and can be further enhanced with additional AI-powered safety features.
 
-📌 Represents an early-stage implementation with room for future expansion.
+📌 Current implementation focuses mainly on eye-based drowsiness detection using adaptive thresholding and timer-based logic.
 
 ---
 
@@ -37,9 +37,26 @@ The application captures live webcam input, analyzes eye behavior frame-by-frame
 
 ---
 
-# 🎯 Objectives
+# 🌍 Main Purpose of the Project
 
-The main objectives of this project are to:
+The major purpose of this project is to improve safety by reducing accidents caused by driver fatigue and micro-sleep.
+
+This type of system can be used in:
+
+* Smart transportation systems
+* Driver monitoring systems
+* Industrial machine monitoring
+* Safety surveillance systems
+* Smart vehicles and embedded AI systems
+
+The project demonstrates how Artificial Intelligence and Computer Vision can be used to monitor human behavior in real time and provide instant safety alerts.
+
+---
+
+# 🎯 Current Objectives (Current Development Focus)
+
+This project is still evolving.
+The following are the major components currently implemented in this version of the system:
 
 * Detect facial landmarks in real time
 * Isolate and monitor eye regions
@@ -47,48 +64,75 @@ The main objectives of this project are to:
 * Differentiate blinking from drowsiness
 * Implement adaptive threshold calibration
 * Trigger alerts during prolonged eye closure
+* Perform real-time webcam monitoring
+
+📌 These represent the current development focus of the project and form the foundation for future improvements.
 
 ---
 
-# 🧠 Technologies Used
+# 🧠 Tech Stack
 
-* Python
-* OpenCV (cv2)
-* MediaPipe Face Mesh
-* NumPy
-* SciPy
-* PlaySound
-* Jupyter Notebook
+| Technology          | Description                         | Contribution to Project                                                        |
+| ------------------- | ----------------------------------- | ------------------------------------------------------------------------------ |
+| Python              | High-level programming language     | Used as the core programming language for implementing the entire system logic |
+| OpenCV (cv2)        | Computer Vision library             | Used for webcam access, image processing, frame handling, and visual display   |
+| MediaPipe Face Mesh | Facial landmark detection framework | Used to detect 468 facial landmarks and isolate eye regions                    |
+| NumPy               | Numerical computing library         | Used for mathematical operations and array processing                          |
+| SciPy               | Scientific computing library        | Used for Euclidean distance calculation in EAR computation                     |
+| PlaySound           | Audio playback library              | Used to trigger alarm sound during drowsiness                                  |
+| Jupyter Notebook    | Interactive notebook environment    | Used for development, testing, experimentation, and visualization              |
 
 ---
 
 # 🖥️ System Workflow
 
-```text id="drowflow1"
-Webcam Input
-      ↓
-Face Detection
-      ↓
-Facial Landmark Mapping
-      ↓
-Eye Landmark Extraction
-      ↓
-EAR Calculation
-      ↓
-Adaptive Threshold Calibration
-      ↓
-Eye Closure Detection
-      ↓
-Timer-Based Validation
-      ↓
-Alarm Trigger
+```text
+                 ┌────────────────────┐
+                 │   Webcam Input     │
+                 └─────────┬──────────┘
+                           ↓
+                 ┌────────────────────┐
+                 │ Face Detection     │
+                 └─────────┬──────────┘
+                           ↓
+                 ┌────────────────────┐
+                 │ Facial Landmark    │
+                 │ Mapping (468 pts)  │
+                 └─────────┬──────────┘
+                           ↓
+                 ┌────────────────────┐
+                 │ Eye Landmark       │
+                 │ Extraction         │
+                 └─────────┬──────────┘
+                           ↓
+                 ┌────────────────────┐
+                 │ EAR Calculation    │
+                 └─────────┬──────────┘
+                           ↓
+                 ┌────────────────────┐
+                 │ Adaptive Threshold │
+                 │ Calibration        │
+                 └─────────┬──────────┘
+                           ↓
+                 ┌────────────────────┐
+                 │ Eye Closure        │
+                 │ Detection          │
+                 └─────────┬──────────┘
+                           ↓
+                 ┌────────────────────┐
+                 │ Timer Validation   │
+                 └─────────┬──────────┘
+                           ↓
+                 ┌────────────────────┐
+                 │ Alarm Trigger      │
+                 └────────────────────┘
 ```
 
 ---
 
 # 📂 Project Structure
 
-```bash id="drowstruct1"
+```bash
 Drowsiness-Alert-System/
 │
 ├── notebooks/
@@ -112,13 +156,146 @@ Drowsiness-Alert-System/
 └── README.md
 ```
 
+## 📁 Folder Explanation
+
+| Folder/File                              | Purpose                                                   |
+| ---------------------------------------- | --------------------------------------------------------- |
+| notebooks/                               | Contains all Jupyter notebooks used during development    |
+| task_2_1_webcam_landmarks.ipynb          | Handles webcam access and facial landmark detection       |
+| task_2_2_ear_calculation.ipynb           | Implements Eye Aspect Ratio (EAR) calculation             |
+| task_2_3_drowsiness_alert_adaptive.ipynb | Implements adaptive thresholding and drowsiness detection |
+| assets/audio/                            | Stores alarm sound files                                  |
+| alarm.wav                                | Audio alert triggered during drowsiness                   |
+| outputs/screenshots/                     | Stores project screenshots and visual outputs             |
+| outputs/videos/                          | Stores demo videos and recordings                         |
+| src/models/                              | Reserved for future AI/ML model integration               |
+| src/utils/                               | Reserved for utility/helper functions                     |
+| requirements.txt                         | Contains required project libraries                       |
+| README.md                                | Project documentation                                     |
+
+---
+
+# ⚙️ Setup & Installation Guide
+
+## 1️⃣ Create Project Folder
+
+```bash
+Drowsiness-Alert-System
+```
+
+---
+
+## 2️⃣ Open Terminal Inside Project Folder
+
+Using File Explorer:
+
+* Open the project folder
+* Click the address bar
+* Type:
+
+```bash
+cmd
+```
+
+* Press Enter
+
+---
+
+## 3️⃣ Create Virtual Environment
+
+```bash
+python -m venv venv
+```
+
+---
+
+## 4️⃣ Activate Virtual Environment
+
+```bash
+venv\Scripts\activate
+```
+
+---
+
+# 📦 Install Required Libraries
+
+```bash
+pip install opencv-python mediapipe numpy scipy matplotlib jupyter ipykernel playsound==1.2.2
+```
+
+---
+
+# 🔧 MediaPipe Version Fix
+
+```bash
+pip uninstall mediapipe -y
+```
+
+```bash
+pip install mediapipe==0.10.9
+```
+
+---
+
+# 📓 Launch Jupyter Notebook
+
+```bash
+jupyter notebook
+```
+
+---
+
+# 📝 Create Notebook Files
+
+```text
+task_2_1_webcam_landmarks.ipynb
+task_2_2_ear_calculation.ipynb
+task_2_3_drowsiness_alert_adaptive.ipynb
+```
+
+---
+
+# ▶️ How to Run the Project
+
+1. Activate virtual environment
+
+```bash
+venv\Scripts\activate
+```
+
+2. Launch Jupyter Notebook
+
+```bash
+jupyter notebook
+```
+
+3. Open:
+
+```text
+task_2_3_drowsiness_alert_adaptive.ipynb
+```
+
+4. Run all notebook cells sequentially
+
+5. Ensure webcam access is enabled
+
+6. Keep eyes open during calibration stage
+
+7. System begins monitoring automatically
+
 ---
 
 # 👁️ Facial Landmark Detection
 
 MediaPipe Face Mesh is used to detect facial landmarks in real time.
 
-Specific landmarks around the eyes are extracted continuously, enabling accurate tracking of eye movement during live webcam processing.
+The system detects:
+
+* 468 facial landmarks
+* Eye landmark coordinates
+* Real-time facial movement
+
+Specific landmarks around the eyes are continuously extracted for eye monitoring and EAR calculation.
 
 ---
 
@@ -131,59 +308,170 @@ The formula compares:
 * Vertical eye distances
 * Horizontal eye width
 
-### EAR Formula
-
-```text id="earformula1"
-EAR = (||p2 - p6|| + ||p3 - p5||) / (2 ||p1 - p4||)
-```
+## EAR Formula
 
 ---
 
 # 📊 EAR Interpretation
 
- | Eye State       | EAR Behavior              |
- | --------------  | ------------------------- |
- | 👁️ Eyes Open   | Higher EAR values         |
- | 👀 Blinking    | Temporary EAR drop        |
- | 😴 Eyes Closed | EAR drops below threshold |
+| Eye State      | EAR Behavior              |
+| -------------- | ------------------------- |
+| 👁️ Eyes Open  | Higher EAR values         |
+| 👀 Blinking    | Temporary EAR drop        |
+| 😴 Eyes Closed | EAR drops below threshold |
 
 ---
 
 # 🧩 Adaptive Thresholding
 
-Instead of using a fixed threshold for all users, the system implements adaptive threshold calibration.
+Instead of using one fixed threshold for all users, the system performs adaptive threshold calibration.
+
+This allows the system to personalize detection for different eye shapes and facial structures.
+
+---
+
+## 🔍 Adaptive Thresholding Process
+
+### Step 1 — Calibration Phase
 
 During startup:
 
-* The system observes the user's normal eye behavior
-* Calculates the average EAR
-* Generates a personalized threshold value
+* The system requests the user to keep eyes open
+* EAR samples are collected continuously
+* 100 frames are collected
 
-This improves accuracy across different facial structures and eye shapes.
+```text
+Collecting Samples: 100/100
+```
 
 ---
 
-# ⏱️ Drowsiness Detection Logic
+### Step 2 — Average EAR Calculation
+
+The system computes the average EAR value from collected samples.
+
+## Average EAR Formula
+
+Where:
+
+* (EAR_i) = EAR value for each frame
+* (N) = Total number of frames collected
+
+---
+
+### Step 3 — Adaptive Threshold Generation
+
+The personalized threshold is generated using:
+
+## Adaptive Threshold Formula
+
+The constant 0.75 is used as a scaling factor to determine the eye-closure boundary.
+
+---
+
+# ⏱️ Timer-Based Drowsiness Logic
 
 The system does not immediately classify blinking as drowsiness.
 
-Instead:
+---
 
-* A timer starts when the eyes close
-* If eye closure persists for several frames/seconds, the system classifies the state as drowsiness
+## Logic Used
 
-This helps reduce false alarms caused by natural blinking.
+### If:
+
+```text
+EAR < Adaptive Threshold
+```
+
+The eyes are considered closed.
 
 ---
 
-# 🔊 Alert System
+### Then:
+
+A timer starts counting how long the eyes remain closed.
+
+---
+
+## Decision Logic
+
+| Eye Closure Duration       | System Decision |
+| -------------------------- | --------------- |
+| Short Duration             | Blink           |
+| Long Duration (4+ seconds) | Drowsiness      |
+
+---
+
+# 🔊 Alarm System
 
 When prolonged eye closure is detected:
 
-* A visual warning appears on screen
+* A visual alert appears on screen
 * An alarm sound is triggered automatically
 
 This acts as an immediate safety warning mechanism.
+
+---
+
+# 📸 Visual Results
+
+## Facial Landmark Detection
+
+<img width="1919" height="1079" alt="FACIAL LANDMARK" src="https://github.com/user-attachments/assets/79c8ca9a-25ea-43f2-b479-17c336860be1" />
+
+
+Brief Description:
+
+* Shows real-time facial landmark mapping
+* Demonstrates eye region tracking using MediaPipe
+
+---
+
+## EAR Monitoring
+
+<img width="1919" height="1068" alt="EAR MONITORING" src="https://github.com/user-attachments/assets/65c1c189-8d33-42c5-9c6f-f53bde18892f" />
+
+
+Brief Description:
+
+* Shows EAR values changing dynamically
+* Demonstrates eye-open and eye-closed states
+
+---
+
+## Adaptive Threshold Calibration
+
+<img width="1914" height="1079" alt="CALIBRATION PROCESS" src="https://github.com/user-attachments/assets/54792820-430f-4413-8500-f85d11942250" />
+
+
+Brief Description:
+
+* Shows calibration stage during sample collection
+* System observes user's normal eye behavior
+
+---
+
+## Calibration Complete
+
+<img width="1919" height="1079" alt="COMPLETED CALIBRATION" src="https://github.com/user-attachments/assets/d1b34c3f-cc53-4ebc-bd53-9ae86b94f416" />
+
+
+Brief Description:
+
+* Displays calculated Average EAR
+* Displays generated Adaptive Threshold
+
+---
+
+## Drowsiness Alert Detection
+
+<img width="1919" height="1079" alt="DROWSINESS DETECTION" src="https://github.com/user-attachments/assets/cfebcaa2-7f54-4ae7-9f94-c74dbb1f2dff" />
+
+
+Brief Description:
+
+* Shows prolonged eye closure detection
+* Alarm triggered after timer validation
 
 ---
 
@@ -227,13 +515,6 @@ Future versions may include:
 ---
 
 # 🌍 Real-World Applications
-
-This project belongs to the fields of:
-
-* Artificial Intelligence (AI)
-* Computer Vision
-* Human Monitoring Systems
-* Embedded Safety Systems
 
 Possible deployment areas include:
 
@@ -283,9 +564,33 @@ This project was developed as part of a practical learning journey involving:
 
 ---
 
-# 👨‍💻 Author
+# 🙏 Acknowledgement
 
-Imraan Muhammad Sani
+This project was developed with the support of:
 
-comrade inusa emmanuel
+[NCAIR (National Centre for Artificial Intelligence and Robotics)](https://ncair.nitda.gov.ng/?utm_source=chatgpt.com) — An agency under [NITDA (National Information Technology Development Agency)](https://nitda.gov.ng/?utm_source=chatgpt.com) dedicated to advancing Artificial Intelligence, Robotics, and emerging technologies in Nigeria.
+
+We extend our sincere gratitude to the entire NCAIR/NITDA program cohort for mentorship, collaboration, and technical guidance throughout the development of this project.
+
 ---
+
+# 👨‍🏫 Program Facilitators
+
+| Role                   | Name             | LinkedIn                                                                                         |
+| ---------------------- | ---------------- | ------------------------------------------------------------------------------------------------ |
+| Lead Facilitator       | Shaddai Adeniran | [Shaddai Adeniran LinkedIn](https://linkedin.com/in/shaddai-adeniran?utm_source=chatgpt.com)     |
+| Supporting Facilitator | Stephen Ayuba    | [Stephen Ayuba LinkedIn](https://linkedin.com/in/stephen-ayuba?utm_source=chatgpt.com)           |
+| Supporting Facilitator | Rizama Victor    | [Rizama Victor LinkedIn](https://linkedin.com/in/rizama-victor-b63266226?utm_source=chatgpt.com) |
+
+---
+
+# 👨‍💻 Contributors
+
+* Imran Muhammad Sani
+* Comrade Inusa Emmanuel
+
+---
+
+# 📄 License
+
+This project is intended for educational, research, and learning purposes.
