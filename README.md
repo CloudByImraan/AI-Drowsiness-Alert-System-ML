@@ -310,7 +310,7 @@ The formula compares:
 
 ## EAR Formula
 
-<img width="943" height="787" alt="EAR FORMULAR" src="https://github.com/user-attachments/assets/fa591949-852a-4a34-9647-dda339acea27" />
+<img width="800" height="600" alt="EAR FORMULAR" src="https://github.com/user-attachments/assets/fa591949-852a-4a34-9647-dda339acea27" />
 
 
 # 📊 EAR Interpretation
@@ -569,7 +569,7 @@ This project was developed as part of a practical learning journey involving:
 
 This project was developed with the support of:
 
-[NCAIR (National Centre for Artificial Intelligence and Robotics)](https://ncair.nitda.gov.ng/?utm_source=chatgpt.com) — An agency under [NITDA (National Information Technology Development Agency)](https://nitda.gov.ng/?utm_source=chatgpt.com) dedicated to advancing Artificial Intelligence, Robotics, and emerging technologies in Nigeria.
+[NCAIR (National Centre for Artificial Intelligence and Robotics)](https://ncair.nitda.gov.ng/?utm_source=chatgpt.com) — An agency collaborating with [NITDA (National Information Technology Development Agency)](https://nitda.gov.ng/?utm_source=chatgpt.com) dedicated to advancing Artificial Intelligence, Robotics, and emerging technologies in Nigeria.
 
 We extend our sincere gratitude to the entire NCAIR/NITDA program cohort for mentorship, collaboration, and technical guidance throughout the development of this project.
 
