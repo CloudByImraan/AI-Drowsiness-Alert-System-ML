@@ -587,7 +587,7 @@ We extend our sincere gratitude to the entire NCAIR/NITDA program cohort for men
 
 # 👨‍💻 Contributors
 
-* Imran Muhammad Sani
+* Imran Muhammad Sani [linkedin.com/in/imraan-muhammad-sani-583625304]
 * Comrade Inusa Emmanuel
 
 ---
